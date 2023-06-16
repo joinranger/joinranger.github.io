@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Averia+Libre">
+    <style>
+        body {
+            font-family: 'Averia Libre', serif;
+            font-size: 48px;
+        }
+
+        canvas {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 800px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <canvas id="myCanvas" width="1024" height="1024"></canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const mid = 512
+        const ringMin = 200
+        const ringSpacing = 100
+        ctx.strokeStyle = "#00B0FF";
+        ctx.lineWidth = 10;
+        ctx.beginPath()
+        ctx.arc(mid, mid, ringMin + (ringSpacing * 2), 0, 2 * Math.PI)
+        ctx.stroke()
+
+        ctx.beginPath()
+        ctx.arc(mid, mid, ringMin + ringSpacing, 0, 2 * Math.PI)
+        ctx.stroke()
+
+        ctx.beginPath()
+        ctx.arc(mid, mid, ringMin, 0, 2 * Math.PI)
+        ctx.stroke()
+
+        ctx.fillStyle = "rgba(255,0,0,0)";
+        ctx.clearRect(0, mid - 100, 1024, 200);
+
+        ctx.fillStyle = '#00B0FF'
+        ctx.font = "260px Averia Libre";
+        ctx.fillText("RANGER", 10, mid + 90);
+
+    </script>
+
+</body>
+
+</html>
